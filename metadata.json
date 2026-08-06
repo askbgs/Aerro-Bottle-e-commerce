@@ -1,0 +1,6 @@
+{
+  "name": "COD Store Template",
+  "description": "A beautiful, premium, single-page Cash-on-Delivery store template for a single product. Highly customizable and beginner-friendly.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
