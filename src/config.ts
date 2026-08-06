@@ -1,3 +1,5 @@
+import productHeroImage from "./assets/images/product_hero_1785975613904.jpg";
+
 /**
  * ============================================================================
  * CASH-ON-DELIVERY (COD) STORE TEMPLATE CONFIGURATION
@@ -13,7 +15,7 @@ export const STORE_CONFIG = {
   // 2. Product Information
   PRODUCT_NAME: "Aero Smart Thermos", // Change to: "YOUR PRODUCT NAME"
   PRODUCT_DESCRIPTION: "A premium vacuum-insulated flask featuring a modern minimalist design, a touch-sensitive LED temperature display, and intelligent hydration reminders.", // Change to: "YOUR PRODUCT DESCRIPTION"
-  PRODUCT_IMAGE_URL: "/src/assets/images/product_hero_1785975613904.jpg", // Automatically uses the beautiful high-end product mockup generated
+  PRODUCT_IMAGE_URL: productHeroImage, // Automatically uses the beautiful high-end product mockup generated
   
   // 3. Pricing & Currency
   PRICE_PER_UNIT: 49, // Change to your product price (number)
