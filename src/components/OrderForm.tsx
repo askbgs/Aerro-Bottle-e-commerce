@@ -23,6 +23,7 @@ export default function OrderForm() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
+  const [showCitySuggestions, setShowCitySuggestions] = useState(false);
   const [address, setAddress] = useState("");
   const [country, setCountry] = useState(STORE_CONFIG.DEFAULT_COUNTRY);
   const [notes, setNotes] = useState("");
@@ -36,6 +37,13 @@ export default function OrderForm() {
   // Price calculation
   const subtotal = STORE_CONFIG.PRICE_PER_UNIT * quantity;
   const total = subtotal; // Free Shipping!
+
+  // Filter Sri Lankan cities based on input
+  const filteredCities = city
+    ? (STORE_CONFIG.CITIES || []).filter((c) =>
+        c.toLowerCase().includes(city.toLowerCase())
+      )
+    : (STORE_CONFIG.CITIES || []);
 
   // Input Field Validation
   const validateField = (name: string, value: string) => {
@@ -361,7 +369,7 @@ export default function OrderForm() {
                         className={`w-full bg-slate-50/50 border rounded-xl px-4 py-2.5 text-sm focus:outline-hidden focus:ring-2 focus:ring-black/5 transition-all ${
                           errors.phone ? "border-red-300 focus:ring-red-400/10" : "border-slate-200"
                         }`}
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="077 123 4567"
                       />
                       {errors.phone && (
                         <p className="mt-1.5 text-xs text-red-500 font-bold flex items-center">
@@ -421,8 +429,8 @@ export default function OrderForm() {
                       )}
                     </div>
 
-                    {/* City */}
-                    <div>
+                    {/* City (Searchable Autocomplete) */}
+                    <div className="relative">
                       <label htmlFor="city" className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">
                         City *
                       </label>
@@ -431,11 +439,31 @@ export default function OrderForm() {
                         id="city"
                         value={city}
                         onChange={(e) => handleInputChange("city", e.target.value, setCity)}
+                        onFocus={() => setShowCitySuggestions(true)}
+                        onBlur={() => setTimeout(() => setShowCitySuggestions(false), 200)}
                         className={`w-full bg-slate-50/50 border rounded-xl px-4 py-2.5 text-sm focus:outline-hidden focus:ring-2 focus:ring-black/5 transition-all ${
                           errors.city ? "border-red-300 focus:ring-red-400/10" : "border-slate-200"
                         }`}
-                        placeholder="New York"
+                        placeholder="Type or select city (e.g. Colombo)"
+                        autoComplete="off"
                       />
+                      {showCitySuggestions && filteredCities.length > 0 && (
+                        <div className="absolute z-50 left-0 right-0 mt-1 max-h-48 overflow-y-auto bg-white border border-slate-200 rounded-xl shadow-lg divide-y divide-slate-50">
+                          {filteredCities.map((c) => (
+                            <button
+                              key={c}
+                              type="button"
+                              onClick={() => {
+                                handleInputChange("city", c, setCity);
+                                setShowCitySuggestions(false);
+                              }}
+                              className="w-full text-left px-4 py-2.5 text-xs text-slate-700 hover:bg-slate-50 active:bg-slate-100 font-medium transition-colors cursor-pointer"
+                            >
+                              {c}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                       {errors.city && (
                         <p className="mt-1.5 text-xs text-red-500 font-bold flex items-center">
                           <AlertCircle className="w-3.5 h-3.5 mr-1" />
@@ -457,7 +485,7 @@ export default function OrderForm() {
                         className={`w-full bg-slate-50/50 border rounded-xl px-4 py-2.5 text-sm focus:outline-hidden focus:ring-2 focus:ring-black/5 transition-all ${
                           errors.address ? "border-red-300 focus:ring-red-400/10" : "border-slate-200"
                         }`}
-                        placeholder="Apt 4B, 123 Luxury Avenue"
+                        placeholder="e.g. 123, Galle Road, Colombo 03"
                       />
                       {errors.address && (
                         <p className="mt-1.5 text-xs text-red-500 font-bold flex items-center">

@@ -18,9 +18,9 @@ export const STORE_CONFIG = {
   PRODUCT_IMAGE_URL: productHeroImage, // Automatically uses the beautiful high-end product mockup generated
   
   // 3. Pricing & Currency
-  PRICE_PER_UNIT: 49, // Change to your product price (number)
-  CURRENCY: "USD", // Change to your local currency, e.g., "USD", "EUR", "AED"
-  CURRENCY_SYMBOL: "$", // E.g., "$", "€", "AED"
+  PRICE_PER_UNIT: 7500, // Change to your product price (number)
+  CURRENCY: "LKR", // Change to your local currency, e.g., "USD", "EUR", "AED"
+  CURRENCY_SYMBOL: "Rs.", // E.g., "$", "€", "AED"
   
   // 4. Product Variants (Add as many as you'd like)
   VARIANTS: [
@@ -30,16 +30,93 @@ export const STORE_CONFIG = {
   ],
 
   // 5. Order Form & Country Settings
-  DEFAULT_COUNTRY: "United States", // E.g., "United States", "Saudi Arabia", "Germany"
+  DEFAULT_COUNTRY: "Sri Lanka", // E.g., "United States", "Saudi Arabia", "Germany"
   COUNTRIES: [
-    "United States",
-    "Canada",
-    "United Kingdom",
-    "Australia",
-    "Germany",
-    "France",
-    "United Arab Emirates",
-    "Saudi Arabia"
+    "Sri Lanka"
+  ],
+  CITIES: [
+    "Ambalangoda",
+    "Ampara",
+    "Anuradhapura",
+    "Attanagalla",
+    "Avissawella",
+    "Badulla",
+    "Bandaragama",
+    "Bandarawela",
+    "Battaramulla",
+    "Batticaloa",
+    "Bentota",
+    "Beruwala",
+    "Chilaw",
+    "Colombo",
+    "Dambulla",
+    "Dankotuwa",
+    "Dehiwala-Mount Lavinia",
+    "Ella",
+    "Galle",
+    "Gampaha",
+    "Gampola",
+    "Hambantota",
+    "Hanwella",
+    "Haputale",
+    "Hatton",
+    "Hikkaduwa",
+    "Horana",
+    "Ja-Ela",
+    "Jaffna",
+    "Kadawatha",
+    "Kaduwela",
+    "Kalutara",
+    "Kandana",
+    "Kandy",
+    "Katunayake",
+    "Kegalle",
+    "Kelaniya",
+    "Kilinochchi",
+    "Kiribathgoda",
+    "Kolonnawa",
+    "Kottawa",
+    "Kuliyapitiya",
+    "Kurunegala",
+    "Maharagama",
+    "Malabe",
+    "Mannar",
+    "Marawila",
+    "Matale",
+    "Matara",
+    "Matugama",
+    "Mawanella",
+    "Minuwangoda",
+    "Mirigama",
+    "Monaragala",
+    "Moratuwa",
+    "Mullaitivu",
+    "Narammala",
+    "Nawalapitiya",
+    "Negombo",
+    "Nugegoda",
+    "Nuwara Eliya",
+    "Panadura",
+    "Point Pedro",
+    "Polonnaruwa",
+    "Puttalam",
+    "Ragama",
+    "Ratnapura",
+    "Seeduwa",
+    "Sigiriya",
+    "Sri Jayawardenepura Kotte",
+    "Talawakele",
+    "Tangalle",
+    "Trincomalee",
+    "Vavuniya",
+    "Veyangoda",
+    "Wadduwa",
+    "Warakapola",
+    "Wariyapola",
+    "Wattala",
+    "Weligama",
+    "Wellawaya",
+    "Wennappuwa"
   ],
 
   // 6. Supabase Credentials
